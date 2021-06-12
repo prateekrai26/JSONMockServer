@@ -38,7 +38,7 @@ public class ReadFromJSONService {
     public JSONObject readStore(){
         JSONObject jsonObject = new JSONObject();
         try {
-            try (FileReader fileReader = new FileReader("src/main/java/com/example/json/res/store.json")) {
+            try (FileReader fileReader = new FileReader("store.json")) {
                 Object object = jsonParser.parse(fileReader);
                 jsonObject = (JSONObject) object;
             }

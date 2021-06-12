@@ -5,6 +5,7 @@ import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.io.File;
 import java.io.FileWriter;
 
 @Service
@@ -38,7 +39,7 @@ public class WriteIntoJSONService {
     }
     public void writeStore(JSONObject jsonObject){
         try{
-            try(FileWriter fileWriter= new FileWriter("src/main/java/com/example/json/res/store.json" )){
+            try(FileWriter fileWriter= new FileWriter("store.json")){
                 fileWriter.write(jsonObject.toJSONString());
                 fileWriter.flush();
             }

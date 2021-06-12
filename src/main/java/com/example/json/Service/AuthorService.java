@@ -11,6 +11,8 @@ import org.springframework.stereotype.Service;
 
 import java.io.FileReader;
 import java.io.FileWriter;
+import java.util.Collection;
+import java.util.Collections;
 
 @Service
 public class AuthorService {
@@ -24,14 +26,23 @@ public class AuthorService {
     @Autowired
     private AuthorManager authorManager;
 
-    public Object read(){
+    public JSONArray read(String firstName , String lastName  , String sort , String order , String query){
          JSONArray jsonArray = readFromJSONService.readAuthor();
-        if(jsonArray.isEmpty())
-        {
-            return "No Author Exists";
-        }
+          if(firstName!=null){
+              jsonArray= authorManager.filterByFirstName(jsonArray , firstName);
+          }
+          if(lastName!=null ){
+              jsonArray= authorManager.filterByLastName(jsonArray,lastName);
+          }
+          if(sort!=null){
+              jsonArray = authorManager.sortAuthors(jsonArray , sort , order);
+          }
+          if(query!=null){
+              jsonArray= authorManager.filterOnQuery(jsonArray, query);
+          }
         return jsonArray;
     }
+
 
 
     public Object getAuthor(String authorId){

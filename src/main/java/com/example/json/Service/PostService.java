@@ -1,10 +1,13 @@
 package com.example.json.Service;
 
 import com.example.json.Entity.Post;
+import com.example.json.Manager.PostManager;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.Random;
 
 @Service
 public class PostService {
@@ -18,12 +21,16 @@ public class PostService {
     @Autowired
     private WriteIntoJSONService writeIntoJSONService;
 
+    @Autowired
+    private PostManager postManager;
+
     public String add(Post post){
         try {
             String authorId= post.getAuthor();
             if(!authorService.validateAuthor(authorId)){
                 return "Author is not Valid";
             }
+            Random random = new Random();
             JSONArray jsonArray = readFromJSONService.readPosts();
             System.out.println(jsonArray);
             Integer id = getId(jsonArray);
@@ -31,8 +38,10 @@ public class PostService {
             jsonObject.put("id" , id);
             jsonObject.put("title", post.getTitle());
             jsonObject.put("author", post.getAuthor());
-            jsonObject.put("views" , 0);
-            jsonObject.put("reviews" , 0);
+            Integer randomViews = random.nextInt(100);
+            Integer randomReviews =random.nextInt(randomViews);
+            jsonObject.put("views" ,random.nextInt(randomViews));
+            jsonObject.put("reviews" ,random.nextInt(randomReviews));
             jsonArray.add(jsonObject);
             authorService.increasePost(post.getAuthor().toString());
             writeIntoJSONService.writePost(jsonArray);
@@ -89,7 +98,6 @@ public class PostService {
                     return jsonObject;
                 }
             }
-
         }
         catch (Exception e){
         }
@@ -151,6 +159,23 @@ public class PostService {
 
         }
         return "Post Updated Successfully";
+    }
+
+    public JSONArray fiterBasedOnParameters(String title , String author , String sort , String order , String query){
+        JSONArray posts = readFromJSONService.readPosts();
+        if(title!=null){
+          posts=  postManager.filterByTitle(posts, title);
+        }
+        if(author!=null){
+            posts = postManager.filterByAuthor(posts , author);
+        }
+        if(sort!=null){
+            posts = postManager.sortPosts(posts , sort , order);
+        }
+        if(query!=null){
+            posts = postManager.filterByQuery(posts , query);
+        }
+      return posts;
     }
 
 
