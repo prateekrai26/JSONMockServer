@@ -130,7 +130,7 @@ GET- https://json-web.azurewebsites.net/authors
         "posts": 0
     },
     {
-        "firstName": "Suhas",
+        "firstName": "Suhas",    
         "lastName": "Singh",
         "id": 2,
         "authorId": "suhas28",
