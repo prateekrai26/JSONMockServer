@@ -19,7 +19,7 @@ https://www.getpostman.com/collections/a3e876131668e36c484c
 
 #Home API Usage 
 
-GET- https://json-web.azurewebsites.net
+GET- https://json-mock.azurewebsites.net
 
 {
     "posts": [
@@ -105,7 +105,7 @@ GET- https://json-web.azurewebsites.net
 #Author Apis Usage 
 
 #Request 
-POST - https://json-web.azurewebsites.net/authors
+POST - https://json-mock.azurewebsites.net/authors
 
 {
     "authorId" : "prateek12",
@@ -118,7 +118,7 @@ Author Successfully Added
 ![image](https://user-images.githubusercontent.com/35877862/121784752-63edd100-cbd3-11eb-8e26-54431f0f29e1.png)
 
 #Request
-GET- https://json-web.azurewebsites.net/authors
+GET- https://json-mock.azurewebsites.net/authors
 
 #Response 
 [
@@ -156,7 +156,7 @@ GET- https://json-web.azurewebsites.net/authors
 
 #Request
 
-DELETE https://json-web.azurewebsites.net//authors/ankit29
+DELETE https://json-mock.azurewebsites.net/authors/ankit23
 
 ![image](https://user-images.githubusercontent.com/35877862/121784932-846a5b00-cbd4-11eb-8d1c-9b9231970568.png)
 
@@ -202,7 +202,7 @@ Update Request
 Old details of ankit23
 ![image](https://user-images.githubusercontent.com/35877862/121785011-efb42d00-cbd4-11eb-8da9-2fd3872e424d.png)
 
-PUT - https://json-web.azurewebsites.net/authors/ankit23
+PUT - https://json-mock.azurewebsites.net/authors/ankit23
 {
     "firstName": "Ankit", 
     "lastName" : "Singh"
@@ -217,9 +217,9 @@ New Details of ankit23
 
 #Some Filters 
 
-GET- https://json-web.azurewebsites.net/authors?q=ank
+GET- https://json-mock.azurewebsites.net/authors?q=ank
 
-GET-https://json-web.azurewebsites.net/authors?last_name=rai
+GET-https://json-mock.azurewebsites.net/authors?last_name=rai
 
 ![image](https://user-images.githubusercontent.com/35877862/121785097-6a7d4800-cbd5-11eb-81fa-334dabb8486a.png)
 
@@ -230,7 +230,7 @@ GET-https://json-web.azurewebsites.net/authors?last_name=rai
 
 #Requests
 
-POST- https://json-web.azurewebsites.net/posts
+POST- https://json-mock.azurewebsites.net/posts
 
 {
     "title" : "Superman" ,
@@ -239,7 +239,7 @@ POST- https://json-web.azurewebsites.net/posts
 
 #Request 
 
-GET- https://json-web.azurewebsites.net/posts
+GET- https://json-mock.azurewebsites.net/posts
 
 [
     {
@@ -296,7 +296,7 @@ GET- https://json-web.azurewebsites.net/posts
 
 #Request
 
-GET - https://json-web.azurewebsites.net/posts?title=marvel
+GET - https://json-mock.azurewebsites.net/posts?title=marvel
 
 [
     {
@@ -317,7 +317,7 @@ GET - https://json-web.azurewebsites.net/posts?title=marvel
 ![image](https://user-images.githubusercontent.com/35877862/121785703-f6dd3a00-cbd8-11eb-863a-fe17210a0712.png)
 
 
-GET - https://json-web.azurewebsites.net/posts?title=avengers&author=prateek
+GET - https://json-mock.azurewebsites.net/posts?title=avengers&author=prateek
 
 [
     {
@@ -331,7 +331,7 @@ GET - https://json-web.azurewebsites.net/posts?title=avengers&author=prateek
 ![image](https://user-images.githubusercontent.com/35877862/121785732-1d02da00-cbd9-11eb-8e50-86ffd913497f.png)
 
 
-GET - https://json-web.azurewebsites.net/posts?sort=views&order=dsc
+GET - https://json-mock.azurewebsites.net/posts?sort=views&order=dsc
 
 [
     {
@@ -388,7 +388,7 @@ GET - https://json-web.azurewebsites.net/posts?sort=views&order=dsc
 ![image](https://user-images.githubusercontent.com/35877862/121785742-3f94f300-cbd9-11eb-96a4-6876528cf428.png)
 
 
-DELETE - https://json-web.azurewebsites.net/posts/3
+DELETE - https://json-mock.azurewebsites.net/posts/3
 
 
 OLD GET Response for Post 
@@ -480,7 +480,7 @@ UPDATE -
 
 OLD POST of ciq
 
-https://json-web.azurewebsites.net/posts?author=ciq
+https://json-mock.azurewebsites.net/posts?author=ciq
 [
     {
         "reviews": 0,
@@ -491,7 +491,7 @@ https://json-web.azurewebsites.net/posts?author=ciq
     }
 ]
 
-PATCH  - https://json-web.azurewebsites.net/posts/7
+PATCH  - https://json-mock.azurewebsites.net/posts/7
 {
    "title": "Marvel",
    "author":"ciq"
